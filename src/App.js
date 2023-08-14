@@ -7,11 +7,11 @@ import Practice from "./components/practice/practice";
 function App() {
   return (
     <div className="app">
-      {/* <Logo />
+      <Logo />
       <Form1 />
       <PackingList />
-      <Stats /> */}
-      <Practice />
+      <Stats />
+      {/* <Practice /> */}
     </div>
   );
 }

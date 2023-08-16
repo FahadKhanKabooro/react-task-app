@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 
-export default function Form1() {
+export default function Form1({ onAdditems }) {
   const [description, setDescription] = useState("");
   const [quantity, setQuantity] = useState(1);
+
   function handleSubmit(e) {
     e.preventDefault();
     if (!description) return;
@@ -13,11 +14,15 @@ export default function Form1() {
       packed: false,
       id: Date.now(),
     };
+
     console.log(newItem);
+    onAdditems(newItem);
+    setDescription("");
+    setQuantity(1);
   }
 
   return (
-    <div className="add-form" onSubmit={handleSubmit}>
+    <form className="add-form" onSubmit={handleSubmit}>
       <h3>What do u need for your 😍Trip</h3>
       <select
         value={quantity}
@@ -36,6 +41,6 @@ export default function Form1() {
         onChange={(e) => setDescription(e.target.value)}
       />
       <button>add</button>
-    </div>
+    </form>
   );
 }
